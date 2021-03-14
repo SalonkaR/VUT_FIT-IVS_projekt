@@ -9,7 +9,7 @@ Windows 64bit
 ## Autori
 ------
 
-### rest2
+### restt2
 - xhorni20 Matej Hornik 
 - xbrnaf00 Filip Brna 
 - xtvaro00 Matus Tvarozny 
