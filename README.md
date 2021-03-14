@@ -1,4 +1,4 @@
-# Projekt pre [IFJ](https://www.fit.vut.cz/study/course/14043/.cs)
+# Projekt pre [IVS](https://www.fit.vut.cz/study/course/14043/.cs)
 
 ### Team
 * Filip Brna
