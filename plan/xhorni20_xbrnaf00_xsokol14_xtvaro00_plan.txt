@@ -1,0 +1,35 @@
+Plán projektu IVS:
+- Všetky úlohy su založené ako issues na GitHubu https://github.com/hornikmatej/ivs_projekt
+
+Predbežné termíny:
+#1 	Základná štruktúra        		 1. 4.
+#2	Testy matematickej knižnice            	 4. 4
+#3 	Vytvorenie mockupov                  	 4. 4.
+#4 	Implementácia matematickej knižnice    	 11.4.
+#5 	Vytvorenie GUI           		 11.4.
+#6 	Install & uninstall     		 18.4.
+#7 	Prepojenie GUI a matematickej knižnice   18.4.
+#8 	Profilovanie matematickej knižnice     	 22.4.
+#9 	Užívateľská dokumentácia   		 25.4.
+#10 	Vygenerovanie programovej dokumentácie   25.4.
+
+Pridelené úlohy:
+- na GitHube je vždy k úlohe priradený riešiteľ
+#1 	Základná štruktúra                 	 xtvaro00, Matúš tvarožný, SalonkaR
+#2 	Testy matematickej knižnice              xhorni20, Matej Hornik, hornikmatej    	 
+#3 	Implementácia matematickej knižnice 	 xbrnaf00, Filip Brna, BicoVUT
+#4 	Vytvorenie GUI                     	 xbrnaf00, Filip Brna, BicoVUT
+#5 	Vytvorenie mockupov                	 všetci
+#6 	Install & uninstall                	 xsokol14, Jakub Sokolík, Sokol9
+#7 	Vygenerovanie programovej dokumentácie	 všetci
+#8 	Prepojenie GUI a matematickej knižnice   xtvaro00, Matúš tvarožný, SalonkaR
+#9 	Profilovanie matematickej knižnice   	 xhorni20, Matej Hornik, hornikmatej
+#10 	Užívateľská dokumentácia          	 xsokol14, Jakub Sokolík, Sokol9
+
+Komunikačný kanál:
+- Na celú komunikáciu bude používaný vlastný discord server. 
+
+Systém pre správu verzií:
+- Git, ako vzdialený repozitár bude použitý Github
+- Pre kontrolu vyučujúcimi bolo udelené povolenie na githube na emailovú adresu: ivs.kontrola@gmail.com
+
