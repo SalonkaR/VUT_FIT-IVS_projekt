@@ -63,7 +63,7 @@ def replace_root(expr):
     regex_root = r'(([0-9])+[√](([+-]?[0-9]+[.])?[+-]?[0-9]+))'
     matches = re.findall(regex_root, expr)
     for match in matches:
-        expr = expr.replace(match[0], str(square_root(int(match[2]), float(match[1]))))
+        expr = expr.replace(match[0], str(square_root(float(match[2]), int(match[1]))))
     return expr
 
 def replace_power(expr):
@@ -73,8 +73,7 @@ def replace_power(expr):
         expr = expr.replace(match[0], str(power(float(match[1]), float(match[3]))))
     return expr
 
-def solve_expr(expr):
-
+def solve_expr_no_brack(expr):
     if "," in expr:
         raise ValueError("Treba pouzit bodku miesto ciarky")
     # chyby zadania napr "abs120." alebo "fac2.2"
@@ -100,3 +99,20 @@ def solve_expr(expr):
         raise ValueError("Zla syntax 1")
     return float(expr)
 
+
+def solve_expr(expr):
+    left_brack = len(re.findall("\(", expr))
+    right_brack = len(re.findall("\)", expr))
+
+    if (left_brack != right_brack):
+        raise ValueError("Zly pocet zatvoriek")
+
+    while (len(re.findall("\(", expr)) > 0):
+        regex_brack = r'\(([^\(\)]*)\)'
+        matches = re.findall(regex_brack, expr)
+
+        for match in matches:
+            sub_expr = "(" + match + ")"
+            expr = expr.replace(sub_expr, str(solve_expr_no_brack(match)))
+
+    return solve_expr_no_brack(expr)
