@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'PyCalculator.ui'
+# Form implementation generated from reading ui file 'GUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -97,15 +97,15 @@ class Ui_Form(object):
 "border-style: outset;\n"
 "border-radius: 8px;")
         self.pushButton_three.setObjectName("pushButton_three")
-        self.pushButton_doublezero = QtWidgets.QPushButton(Form)
-        self.pushButton_doublezero.setGeometry(QtCore.QRect(110, 220, 41, 41))
-        self.pushButton_doublezero.setStyleSheet("font: 75 11pt \"Arial\";\n"
+        self.pushButton_rightbracket = QtWidgets.QPushButton(Form)
+        self.pushButton_rightbracket.setGeometry(QtCore.QRect(210, 70, 41, 41))
+        self.pushButton_rightbracket.setStyleSheet("font: 75 11pt \"Arial\";\n"
 "background-color: rgb(238, 238, 238);\n"
 "border-style: outset;\n"
 "border-radius: 8px;")
-        self.pushButton_doublezero.setObjectName("pushButton_doublezero")
+        self.pushButton_rightbracket.setObjectName("pushButton_rightbracket")
         self.pushButton_ABS = QtWidgets.QPushButton(Form)
-        self.pushButton_ABS.setGeometry(QtCore.QRect(160, 70, 41, 41))
+        self.pushButton_ABS.setGeometry(QtCore.QRect(110, 220, 41, 41))
         self.pushButton_ABS.setStyleSheet("font: 75 11pt \"Arial\";\n"
 "background-color: rgb(238, 238, 238);\n"
 "border-style: outset;\n"
@@ -133,7 +133,7 @@ class Ui_Form(object):
 "border-radius: 8px;")
         self.pushButton_squareroot.setObjectName("pushButton_squareroot")
         self.pushButton_fact = QtWidgets.QPushButton(Form)
-        self.pushButton_fact.setGeometry(QtCore.QRect(210, 70, 41, 41))
+        self.pushButton_fact.setGeometry(QtCore.QRect(260, 170, 41, 41))
         self.pushButton_fact.setStyleSheet("font: 75 11pt \"Arial\";\n"
 "background-color: rgb(238, 238, 238);\n"
 "border-style: outset;\n"
@@ -161,7 +161,7 @@ class Ui_Form(object):
 "border-radius: 8px;")
         self.pushButton_power.setObjectName("pushButton_power")
         self.pushButton_equal = QtWidgets.QPushButton(Form)
-        self.pushButton_equal.setGeometry(QtCore.QRect(260, 170, 41, 91))
+        self.pushButton_equal.setGeometry(QtCore.QRect(260, 220, 41, 41))
         self.pushButton_equal.setStyleSheet("font: 75 11pt \"Arial\";\n"
 "background-color: rgb(238, 238, 238);\n"
 "border-style: outset;\n"
@@ -183,17 +183,25 @@ class Ui_Form(object):
         self.pushButton_AC.setObjectName("pushButton_AC")
         self.lineEdit = QtWidgets.QLineEdit(Form)
         self.lineEdit.setGeometry(QtCore.QRect(10, 10, 291, 51))
-        self.lineEdit.setStyleSheet("background-color: rgb(245, 245, 245);\n"
+        self.lineEdit.setStyleSheet("font: 75 11pt \"Arial\";\n"
+"background-color: rgb(245, 245, 245);\n"
 "border-style: outset;\n"
 "border-radius: 8px;")
-        self.lineEdit.setObjectName("display")
+        self.lineEdit.setObjectName("lineEdit")
+        self.pushButton_leftbracket = QtWidgets.QPushButton(Form)
+        self.pushButton_leftbracket.setGeometry(QtCore.QRect(160, 70, 41, 41))
+        self.pushButton_leftbracket.setStyleSheet("font: 75 11pt \"Arial\";\n"
+"background-color: rgb(238, 238, 238);\n"
+"border-style: outset;\n"
+"border-radius: 8px;")
+        self.pushButton_leftbracket.setObjectName("pushButton_leftbracket")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("PyCalculator", "PyCalculator"))
+        Form.setWindowTitle(_translate("Form", "PyCalculator"))
         self.pushButton_point.setText(_translate("Form", "."))
         self.pushButton_one.setText(_translate("Form", "1"))
         self.pushButton_eight.setText(_translate("Form", "8"))
@@ -205,7 +213,7 @@ class Ui_Form(object):
         self.pushButton_nine.setText(_translate("Form", "9"))
         self.pushButton_six.setText(_translate("Form", "6"))
         self.pushButton_three.setText(_translate("Form", "3"))
-        self.pushButton_doublezero.setText(_translate("Form", "00"))
+        self.pushButton_rightbracket.setText(_translate("Form", ")"))
         self.pushButton_ABS.setText(_translate("Form", "ABS"))
         self.pushButton_mul.setText(_translate("Form", "×"))
         self.pushButton_plus.setText(_translate("Form", "+"))
@@ -217,7 +225,9 @@ class Ui_Form(object):
         self.pushButton_equal.setText(_translate("Form", "="))
         self.pushButton_DEL.setText(_translate("Form", "DEL"))
         self.pushButton_AC.setText(_translate("Form", "AC"))
-#
+        self.pushButton_leftbracket.setText(_translate("Form", "("))
+
+
 # if __name__ == "__main__":
 #     import sys
 #     app = QtWidgets.QApplication(sys.argv)

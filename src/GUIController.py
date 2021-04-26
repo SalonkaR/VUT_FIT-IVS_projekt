@@ -2,19 +2,20 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import sys
-import CalculatorGUI
+import GUI
 
 #import mathlib
 
-
-class App(QMainWindow, CalculatorGUI.Ui_Form):
+"""
+@brief Controller
+"""
+class App(QMainWindow, GUI.Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.show()
 
         self.pushButton_zero.clicked.connect(lambda: self.button_click("0"))
-        self.pushButton_doublezero.clicked.connect(lambda: self.button_click("00"))
         self.pushButton_one.clicked.connect(lambda: self.button_click("1"))
         self.pushButton_two.clicked.connect(lambda: self.button_click("2"))
         self.pushButton_three.clicked.connect(lambda: self.button_click("3"))
@@ -33,6 +34,8 @@ class App(QMainWindow, CalculatorGUI.Ui_Form):
         self.pushButton_squareroot.clicked.connect(lambda: self.button_click("√"))
         self.pushButton_fact.clicked.connect(lambda: self.button_click("fac"))
         self.pushButton_power.clicked.connect(lambda: self.button_click("^"))
+        self.pushButton_leftbracket.clicked.connect(lambda: self.button_click("("))
+        self.pushButton_rightbracket.clicked.connect(lambda: self.button_click(")"))
         self.pushButton_AC.clicked.connect(lambda: self.button_click("AC"))
         self.pushButton_DEL.clicked.connect(lambda: self.button_click("DEL"))
         self.pushButton_equal.clicked.connect(lambda: self.button_click("="))
@@ -99,44 +102,17 @@ class App(QMainWindow, CalculatorGUI.Ui_Form):
             self.button_click("*")
         elif event.key() == Qt.Key_Slash:
             self.button_click("/")
-        elif event.key() == Qt.Key_9:
-            self.button_click("9")
+        elif event.key() == Qt.Key_BraceLeft:
+            self.button_click("(")
+        elif event.key() == Qt.Key_BraceRight:
+            self.button_click(")")
         elif event.key() == Qt.Key_Enter or event.key() == Qt.Key_Return:
             self.button_click("=")
         elif event.key() == Qt.Key_Backspace:
             self.button_click("DEL")
-        print(event.text())
 
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
     calculator = App()
-    # Form = QWidget()
-    # ui = CalculatorGUI.Ui_Form()
-    # ui.setupUi(Form)
-    # Form.show()
     sys.exit(app.exec_())
-
-
-# if __name__ == "__main__":
-#     app = QtWidgets.QApplication(sys.argv)
-#     myapp = QtWidgets.QMainWindow()
-#     myapp.show()
-#     sys.exit(app.exec_())
-
-
-        ##self.pushButton_six.clicked(print("sest\n"))
-
-# class CaclDisplay(QtWidgets.QMainWindow):
-#     def set_display_text(self, text):
-#         self.lineEdit.setText(text)
-#         self.lineEdit.setFocus()
-#
-#     def display_text(self):
-#         return self.lineEdit.text()
-#
-#     def clear_display(self):
-#         self.set_display_text("")
-
-
-
