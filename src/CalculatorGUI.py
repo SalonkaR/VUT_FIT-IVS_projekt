@@ -125,13 +125,13 @@ class Ui_Form(object):
 "border-style: outset;\n"
 "border-radius: 8px;")
         self.pushButton_plus.setObjectName("pushButton_plus")
-        self.pushButton_squarerooy = QtWidgets.QPushButton(Form)
-        self.pushButton_squarerooy.setGeometry(QtCore.QRect(160, 220, 41, 41))
-        self.pushButton_squarerooy.setStyleSheet("font: 75 11pt \"Arial\";\n"
+        self.pushButton_squareroot = QtWidgets.QPushButton(Form)
+        self.pushButton_squareroot.setGeometry(QtCore.QRect(160, 220, 41, 41))
+        self.pushButton_squareroot.setStyleSheet("font: 75 11pt \"Arial\";\n"
 "background-color: rgb(238, 238, 238);\n"
 "border-style: outset;\n"
 "border-radius: 8px;")
-        self.pushButton_squarerooy.setObjectName("pushButton_squarerooy")
+        self.pushButton_squareroot.setObjectName("pushButton_squareroot")
         self.pushButton_fact = QtWidgets.QPushButton(Form)
         self.pushButton_fact.setGeometry(QtCore.QRect(210, 70, 41, 41))
         self.pushButton_fact.setStyleSheet("font: 75 11pt \"Arial\";\n"
@@ -160,13 +160,13 @@ class Ui_Form(object):
 "border-style: outset;\n"
 "border-radius: 8px;")
         self.pushButton_power.setObjectName("pushButton_power")
-        self.pushButton_22 = QtWidgets.QPushButton(Form)
-        self.pushButton_22.setGeometry(QtCore.QRect(260, 170, 41, 91))
-        self.pushButton_22.setStyleSheet("font: 75 11pt \"Arial\";\n"
+        self.pushButton_equal = QtWidgets.QPushButton(Form)
+        self.pushButton_equal.setGeometry(QtCore.QRect(260, 170, 41, 91))
+        self.pushButton_equal.setStyleSheet("font: 75 11pt \"Arial\";\n"
 "background-color: rgb(238, 238, 238);\n"
 "border-style: outset;\n"
 "border-radius: 8px;")
-        self.pushButton_22.setObjectName("pushButton_22")
+        self.pushButton_equal.setObjectName("pushButton_equal")
         self.pushButton_DEL = QtWidgets.QPushButton(Form)
         self.pushButton_DEL.setGeometry(QtCore.QRect(260, 120, 41, 41))
         self.pushButton_DEL.setStyleSheet("font: 75 11pt \"Arial\";\n"
@@ -209,12 +209,12 @@ class Ui_Form(object):
         self.pushButton_ABS.setText(_translate("Form", "ABS"))
         self.pushButton_mul.setText(_translate("Form", "×"))
         self.pushButton_plus.setText(_translate("Form", "+"))
-        self.pushButton_squarerooy.setText(_translate("Form", "√"))
+        self.pushButton_squareroot.setText(_translate("Form", "√"))
         self.pushButton_fact.setText(_translate("Form", "!"))
         self.pushButton_div.setText(_translate("Form", "÷"))
         self.pushButton_minus.setText(_translate("Form", "-"))
         self.pushButton_power.setText(_translate("Form", "^"))
-        self.pushButton_22.setText(_translate("Form", "="))
+        self.pushButton_equal.setText(_translate("Form", "="))
         self.pushButton_DEL.setText(_translate("Form", "DEL"))
         self.pushButton_AC.setText(_translate("Form", "AC"))
 #

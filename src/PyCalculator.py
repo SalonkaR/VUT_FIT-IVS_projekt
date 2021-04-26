@@ -13,29 +13,69 @@ class App(QMainWindow, CalculatorGUI.Ui_Form):
         self.setupUi(self)
         self.show()
 
-        self.pushButton_six.clicked.connect(self.printText())  # self.set_display_text(self.display_text()))
+        self.pushButton_zero.clicked.connect(lambda: self.button_click("0"))
+        self.pushButton_doublezero.clicked.connect(lambda: self.button_click("00"))
+        self.pushButton_one.clicked.connect(lambda: self.button_click("1"))
+        self.pushButton_two.clicked.connect(lambda: self.button_click("2"))
+        self.pushButton_three.clicked.connect(lambda: self.button_click("3"))
+        self.pushButton_four.clicked.connect(lambda: self.button_click("4"))
+        self.pushButton_five.clicked.connect(lambda: self.button_click("5"))
+        self.pushButton_six.clicked.connect(lambda: self.button_click("6"))
+        self.pushButton_seven.clicked.connect(lambda: self.button_click("7"))
+        self.pushButton_eight.clicked.connect(lambda: self.button_click("8"))
+        self.pushButton_nine.clicked.connect(lambda: self.button_click("9"))
+        self.pushButton_point.clicked.connect(lambda: self.button_click("."))
+        self.pushButton_ABS.clicked.connect(lambda: self.button_click("abs"))
+        self.pushButton_mul.clicked.connect(lambda: self.button_click("*"))
+        self.pushButton_plus.clicked.connect(lambda: self.button_click("+"))
+        self.pushButton_minus.clicked.connect(lambda: self.button_click("-"))
+        self.pushButton_div.clicked.connect(lambda: self.button_click("/"))
+        self.pushButton_squareroot.clicked.connect(lambda: self.button_click("√"))
+        self.pushButton_fact.clicked.connect(lambda: self.button_click("fac"))
+        self.pushButton_power.clicked.connect(lambda: self.button_click("^"))
+        self.pushButton_AC.clicked.connect(lambda: self.button_click("AC"))
+        self.pushButton_DEL.clicked.connect(lambda: self.button_click("DEL"))
+        self.pushButton_equal.clicked.connect(lambda: self.button_click("="))
 
-    def printText(self):
-        print("hah")
+    def button_click(self, text):
+        if text == "AC":
+            self.clear_display()
+        elif text == "DEL":
+            if len(self.display_text()) > 0:
+                self.remove_one()
+        elif text == "=":
+            self.clear_display()
+        else:
+            self.set_display_text(text)
 
     def set_display_text(self, text):
-        self.lineEdit.setText(text)
-        self.lineEdit.setFocus()
+        temp = self.display_text() + text
+        self.lineEdit.setText(temp)
+
+    def clear_display(self):
+        self.lineEdit.setText("")
 
     def display_text(self):
         return self.lineEdit.text()
 
-    def clear_display(self):
-        self.set_display_text("")
-
+    def remove_one(self):
+        text = self.display_text()
+        text_len = len(text)
+        if text[text_len - 1] == "s" or text[text_len - 1] == "c":
+            new_text = text[:-3]
+        else:
+            new_text = text[:-1]
+        self.clear_display()
+        self.set_display_text(new_text)
 
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
-    Form = QWidget()
-    ui = CalculatorGUI.Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    calculator = App()
+    # Form = QWidget()
+    # ui = CalculatorGUI.Ui_Form()
+    # ui.setupUi(Form)
+    # Form.show()
     sys.exit(app.exec_())
 
 
