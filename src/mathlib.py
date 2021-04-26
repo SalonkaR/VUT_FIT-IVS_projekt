@@ -117,6 +117,5 @@ def solve_expr(expr):
         for match in matches:
             sub_expr = "(" + match + ")"
             expr = expr.replace(sub_expr, str(solve_expr_no_brack(match)))
-            print(expr)
 
     return solve_expr_no_brack(expr)
