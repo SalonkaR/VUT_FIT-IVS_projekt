@@ -105,7 +105,7 @@ class square_rootTests(unittest.TestCase):
     def test_square_root3(self):
         self.assertEqual(square_root(1,-1), 1, "Ma byt 1")
     def test_square_root4(self):
-        with self.assertRaises(ZeroDivisionError):
+        with self.assertRaises(ValueError):
             square_root(10,0)
     def test_square_root5(self):
         self.assertEqual(square_root(256,2), 16, "Ma byt 16")
@@ -136,7 +136,7 @@ class addSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("0 +")
     def test_solve_expr_add4(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             solve_expr("10+100,0")
     def test_solve_expr_add5(self):
         with self.assertRaises(ValueError):
@@ -179,7 +179,7 @@ class multipySolve_exprTests(unittest.TestCase):
     def test_solve_expr_multiply6(self):
         self.assertEqual(solve_expr("8*0.5"), 4, "Ma byt 4")
     def test_solve_expr_multiply7(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             solve_expr("8*0,5")
 
 class divideSolve_exprTests(unittest.TestCase):
@@ -198,7 +198,7 @@ class divideSolve_exprTests(unittest.TestCase):
     def test_solve_expr_divide6(self):
         self.assertEqual(solve_expr("0.5/0.5"), 1, "Ma byt 1")
     def test_solve_expr_divide7(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             solve_expr("0,2/1")
 
 class factorialSolve_exprTests(unittest.TestCase):
@@ -223,7 +223,7 @@ class factorialSolve_exprTests(unittest.TestCase):
 
 class powerSolve_exprTests(unittest.TestCase):
     def test_solve_expr_power1(self):
-        self.assertEqual(solve_expr("2^ 6"), 64, "Ma byt 64")
+        self.assertEqual(solve_expr("2^6"), 64, "Ma byt 64")
     def test_solve_expr_power2(self):
         self.assertEqual(solve_expr("-2^5"), -32, "Ma byt -32")
     def test_solve_expr_power3(self):
@@ -237,16 +237,19 @@ class powerSolve_exprTests(unittest.TestCase):
     def test_solve_expr_power6(self):
         with self.assertRaises(ValueError):
             solve_expr("^3")
-
+    def test_solve_expr_power7(self):
+        with self.assertRaises(ValueError):
+            solve_expr("2^ 6")
 class square_rootSolve_exprTests(unittest.TestCase):
     def test_solve_expr_square_root1(self):
         self.assertEqual(solve_expr("2√4"), 2, "Ma byt 2")
     def test_solve_expr_square_root2(self):
         self.assertEqual(solve_expr("3√-8"), -2, "Ma byt -2")
     def test_solve_expr_square_root3(self):
-        self.assertEqual(solve_expr("2√ 4"), 2, "Ma byt 2")
+        with self.assertRaises(ValueError):
+            solve_expr("2√ 4")
     def test_solve_expr_square_root4(self):
-        with self.assertRaises(ZeroDivisionError):
+        with self.assertRaises(ValueError):
             solve_expr("0√5")
     def test_solve_expr_square_root5(self):
         with self.assertRaises(ValueError):
@@ -266,7 +269,7 @@ class abs_valueSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("abs-0,25")
     def test_solve_expr_abs_value5(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             solve_expr("abs")
 
 class LongSolve_exprTests(unittest.TestCase):
