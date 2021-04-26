@@ -97,7 +97,10 @@ def solve_expr_no_brack(expr):
         raise ValueError("Zla syntax") from None
     if type(expr) != int and type(expr) != float and type(expr) != str:
         raise ValueError("Zla syntax 1")
-    return float(expr)
+    if int(expr) != expr:
+        return float(expr)
+    else:
+        return int(expr)
 
 
 def solve_expr(expr):
@@ -114,5 +117,6 @@ def solve_expr(expr):
         for match in matches:
             sub_expr = "(" + match + ")"
             expr = expr.replace(sub_expr, str(solve_expr_no_brack(match)))
+            print(expr)
 
     return solve_expr_no_brack(expr)

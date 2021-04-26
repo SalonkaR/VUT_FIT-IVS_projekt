@@ -240,6 +240,7 @@ class powerSolve_exprTests(unittest.TestCase):
     def test_solve_expr_power7(self):
         with self.assertRaises(ValueError):
             solve_expr("2^ 6")
+
 class square_rootSolve_exprTests(unittest.TestCase):
     def test_solve_expr_square_root1(self):
         self.assertEqual(solve_expr("2√4"), 2, "Ma byt 2")
@@ -288,6 +289,26 @@ class LongSolve_exprTests(unittest.TestCase):
     def test_solve_expr_long6(self):
         with self.assertRaises(ValueError):
             solve_expr("fac5 + 4 - 4 * / 4 - abs3 - abs-3.4 + 2√4 + 3√2 + 2.2^2.2 -2^-4")
+
+
+class LongBracketSolve_exprTests(unittest.TestCase):
+    def test_solve_expr_long_bracket1(self):
+        self.assertEqual(solve_expr("fac5 + 2√(3+1) * (1+(3-2)*(2*2)) - abs-5"), 125, "Ma byt 125")
+    def test_solve_expr_long_bracket2(self):
+        self.assertEqual(solve_expr("fac(2+1) - ((10/5)+(2^3+5)*2)"), -22, "Ma byt -22")
+    def test_solve_expr_long_bracket3(self):
+        self.assertEqual(solve_expr("2√((64*2)+(64*2))"), 16, "Ma byt 128")
+    def test_solve_expr_long_bracket4(self):
+        with self.assertRaises(ValueError):
+            solve_expr("6√64 * 1.5 - ((0.0002 / 2^3) - fac")
+    def test_solve_expr_long_bracket5(self):
+        with self.assertRaises(ValueError):
+            solve_expr("fac10 + 5 - -90 / (3 * 2^abs) - 2√256) + abs-2")
+    def test_solve_expr_long_bracket6(self):
+        with self.assertRaises(ValueError):
+            solve_expr("(fac5 + (4 - (4 * / 4 - abs3 - abs-3.4 + 2√4 + 3√2 + 2.2^2.2 -2^-4")
+    def test_solve_expr_long_bracket7(self):
+        self.assertEqual(solve_expr("fac(6/2)"), 6, "Ma byt 6")
 
 if __name__ == '__main__':
     unittest.main()
