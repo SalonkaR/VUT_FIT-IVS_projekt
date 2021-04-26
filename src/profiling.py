@@ -1,18 +1,41 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+##
+# @package
+# Profiling je skript, ktorý počíta smerodajnú odchýlku
+#
+# Skript bol vytvorený za účelom vykonania profilingu. Počíta smerodajnú odchýlku, ktorá
+# používa veľké množstvo funkcii z našej matematickej knižnice.
+# @file profiling.py
+# @date 26.4.2021
+
 import mathlib as m
+import cProfile
 
+##
+# @brief počítá smerodajnú odchýlku
+# @param num zoznam čísel
+# @param n počet čísel
+# @return smerodajná odchylka
 def stand_deviation(num, n):
-    #return m.solve_expr("2√(1 / ({} - 1) * ({} - {} * {}^2))".format(n, pow_sum(num, n), n, avg(num, n)))
-    return m.square_root(m.multiply(m.divide(1,m.minus(n,1)),m.minus(pow_sum(num,n),m.multiply(n,m.power(avg(num,n),2)))), 2)
+    return m.solve_expr("2√(1 / ({} - 1) * ({} - {} * {}^2))".format(n, pow_sum(num), n, avg(num, n)))
 
-def pow_sum(num, n):
+##
+# @brief počítá sumu druhých mocnín všetkych čísel
+# @param num zoznam čísel
+# @return sumu druhých mocnín všetkych čísel
+def pow_sum(num):
     sum = 0
     for x in num:
         sum = m.add(sum, m.power(int(x), 2))
     return sum
 
+##
+# @brief počítá priemer zo všetkych čísel
+# @param num zoznam čísel
+# @param n počet čísel
+# @return priemer zo všetkych čísel
 def avg(num, n):
     sum = 0
     for x in num:
