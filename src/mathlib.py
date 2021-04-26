@@ -28,12 +28,15 @@ def factorial(number):
     return result
 
 def power(base, exponent):
-    return pow(base, exponent)
+    if exponent < 0 and base < 0:
+        return -(base**exponent)
+    return base**exponent
+
 
 def square_root(x, n):
-    if x < 0 or n <= 0:
+    if (n % 2 == 0 and x < 0) or (x <= 0):
         raise ValueError("Chybna hodnota exponentu pri mocnine")
-    return pow(x, 1 / n)
+    return x**(1/n)
 
 def abs_value(n):
     return abs(n)
@@ -53,10 +56,10 @@ def replace_fac(expr):
     return expr
 
 def replace_root(expr):
-    regex_root = r'(([0-9])+[√](([0-9]+[.])?[0-9]+))'
+    regex_root = r'(([0-9])+[√](([+-]?[0-9]+[.])?[0-9]+))'
     matches = re.findall(regex_root, expr)
     for match in matches:
-        expr = expr.replace(match[0], str(square_root(int(match[1]), float(match[2]))))
+        expr = expr.replace(match[0], str(square_root(int(match[2]), float(match[1]))))
     return expr
 
 def replace_power(expr):
@@ -74,7 +77,7 @@ def solve_expr(expr):
         raise ValueError("Zle zadana syntax pri faktoriali")
     if re.search(r'abs([+-])?[0-9]+\.[^0-9]', expr) or re.search(r'abs([+-])?[0-9]+\.$',expr):
         raise ValueError("Zle zadana syntax pri absolutnej hodnotne")
-    if re.search(r'([0-9]+[√][0-9]+[.][^0-9])', expr) or re.search(r'([0-9]+[√][0-9]+[.]$)', expr):
+    if re.search(r'([0-9]+[√][+-]?[0-9]+[.][^0-9])', expr) or re.search(r'([0-9]+[√][+-]?[0-9]+[.]$)', expr):
         raise ValueError("Zle zadana syntax pri odmocnine")
 
 
