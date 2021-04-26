@@ -68,6 +68,45 @@ class App(QMainWindow, CalculatorGUI.Ui_Form):
         self.clear_display()
         self.set_display_text(new_text)
 
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_0:
+            self.button_click("0")
+        elif event.key() == Qt.Key_1:
+            self.button_click("1")
+        elif event.key() == Qt.Key_2:
+            self.button_click("2")
+        elif event.key() == Qt.Key_3:
+            self.button_click("3")
+        elif event.key() == Qt.Key_4:
+            self.button_click("4")
+        elif event.key() == Qt.Key_5:
+            self.button_click("5")
+        elif event.key() == Qt.Key_6:
+            self.button_click("6")
+        elif event.key() == Qt.Key_7:
+            self.button_click("7")
+        elif event.key() == Qt.Key_8:
+            self.button_click("8")
+        elif event.key() == Qt.Key_9:
+            self.button_click("9")
+        elif event.key() == Qt.Key_Period:
+            self.button_click(".")
+        elif event.key() == Qt.Key_Plus:
+            self.button_click("+")
+        elif event.key() == Qt.Key_Minus:
+            self.button_click("-")
+        elif event.key() == Qt.Key_Asterisk:
+            self.button_click("*")
+        elif event.key() == Qt.Key_Slash:
+            self.button_click("/")
+        elif event.key() == Qt.Key_9:
+            self.button_click("9")
+        elif event.key() == Qt.Key_Enter or event.key() == Qt.Key_Return:
+            self.button_click("=")
+        elif event.key() == Qt.Key_Backspace:
+            self.button_click("DEL")
+        print(event.text())
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
