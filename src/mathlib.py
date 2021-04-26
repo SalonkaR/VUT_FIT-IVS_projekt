@@ -1,7 +1,5 @@
 
-import ast
-import operator as op
-# +,-,*,/,!, ^, odmocnina, absolutna hodnota
+import re
 
 def add(a, b):
     return a + b
@@ -30,46 +28,63 @@ def factorial(number):
     return result
 
 def power(base, exponent):
-    # naschaval chyba TODO
-    if exponent <= 0 or type(exponent) != int:
-        raise ValueError("Chybna hodnota exponentu pri mocnine")
     return pow(base, exponent)
 
 def square_root(x, n):
-    # naschaval chyba TODO
-    if x <= 0 or type(n) != int or n <= 0:
+    if x < 0 or n <= 0:
         raise ValueError("Chybna hodnota exponentu pri mocnine")
     return pow(x, 1 / n)
 
 def abs_value(n):
     return abs(n)
 
+def replace_abs(expr):
+    regex_abs = r'(abs([+-]?([0-9]+[.])?[0-9]+))'
+    matches = re.findall(regex_abs, expr)
+    for match in matches:
+        expr = expr.replace(match[0], str(abs_value(float(match[1]))))
+    return expr
+
+def replace_fac(expr):
+    regex_abs = r'(fac([0-9]+))'
+    matches = re.findall(regex_abs, expr)
+    for match in matches:
+        expr = expr.replace(match[0], str(factorial(int(match[1]))))
+    return expr
+
+def replace_root(expr):
+    regex_root = r'(([0-9])+[√](([0-9]+[.])?[0-9]+))'
+    matches = re.findall(regex_root, expr)
+    for match in matches:
+        expr = expr.replace(match[0], str(square_root(int(match[1]), float(match[2]))))
+    return expr
+
+def replace_power(expr):
+    regex_power = r'((([0-9]+[.])?[0-9]+)[\^](([0-9]+[.])?[0-9]+))'
+    matches = re.findall(regex_power, expr)
+    for match in matches:
+        expr = expr.replace(match[0], str(power(float(match[1]), float(match[3]))))
+    return expr
+
+def solve_expr(expr):
+
+    expr = expr.replace(" ", "")
+    # chyby zadania napr "abs120." alebo "fac2.2"
+    if re.search(r'(fac([0-9]+\.))', expr):
+        raise ValueError("Zle zadana syntax pri faktoriali")
+    if re.search(r'abs([+-])?[0-9]+\.[^0-9]', expr) or re.search(r'abs([+-])?[0-9]+\.$',expr):
+        raise ValueError("Zle zadana syntax pri absolutnej hodnotne")
+    if re.search(r'([0-9]+[√][0-9]+[.][^0-9])', expr) or re.search(r'([0-9]+[√][0-9]+[.]$)', expr):
+        raise ValueError("Zle zadana syntax pri odmocnine")
 
 
-# supported operators
-operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul,
-             ast.Div: op.truediv, ast.Pow: op.pow, ast.BitXor: op.xor,
-             ast.USub: op.neg}
-ast.
-def eval_expr(expr):
-    """
-    >>> eval_expr('2^6')
-    4
-    >>> eval_expr('2**6')
-    64
-    >>> eval_expr('1 + 2*3**(4^5) / (6 + -7)')
-    -5.0
-    """
-    return eval_(ast.parse(expr, mode='eval').body)
-
-def eval_(node):
-    if isinstance(node, ast.Num): # <number>
-        return node.n
-    elif isinstance(node, ast.BinOp): # <left> <operator> <right>
-        return operators[type(node.op)](eval_(node.left), eval_(node.right))
-    elif isinstance(node, ast.UnaryOp): # <operator> <operand> e.g., -1
-        return operators[type(node.op)](eval_(node.operand))
-    else:
-        raise TypeError(node)
-
-print(eval_expr('1+2-10*3'))
+    expr = replace_abs(expr)
+    expr = replace_fac(expr)
+    expr = replace_root(expr)
+    expr = replace_power(expr)
+    try:
+        expr = eval(expr)
+    except Exception:
+        raise ValueError("Zla syntax")
+    return float(expr)
+    
