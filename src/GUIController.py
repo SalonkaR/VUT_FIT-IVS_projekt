@@ -3,8 +3,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import sys
 import GUI
+import mathlib
 
-#import mathlib
 
 """
 @brief Controller
@@ -47,7 +47,13 @@ class App(QMainWindow, GUI.Ui_Form):
             if len(self.display_text()) > 0:
                 self.remove_one()
         elif text == "=":
-            self.clear_display()
+            try:
+                temp = str(mathlib.solve_expr(self.display_text()))
+                self.clear_display()
+                self.set_display_text(temp)
+            except:
+                self.clear_display()
+                self.set_display_text("ERROR")
         else:
             self.set_display_text(text)
 
@@ -66,6 +72,8 @@ class App(QMainWindow, GUI.Ui_Form):
         text_len = len(text)
         if text[text_len - 1] == "s" or text[text_len - 1] == "c":
             new_text = text[:-3]
+        elif text[text_len - 1] == "R":
+            new_text = text[:-5]
         else:
             new_text = text[:-1]
         self.clear_display()
@@ -111,8 +119,8 @@ class App(QMainWindow, GUI.Ui_Form):
         elif event.key() == Qt.Key_Backspace:
             self.button_click("DEL")
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    calculator = App()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QApplication(sys.argv)
+#     calculator = App()
+#     sys.exit(app.exec_())
