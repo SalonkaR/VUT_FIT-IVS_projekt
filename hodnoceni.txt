@@ -1,4 +1,4 @@
-xhorni20 100 (základ GUI a základní mat. operace)
-xlogin02 100 (pokročilé mat. operace)
-xlogin03 90 (profiling, instalátor)
-xlogin04 110 (testy, dokumentace)
+xhorni20 100 (implementacia mat. kniznice, mockup)
+xbrnaf00 100 (testy, dokumentacia, mockup)
+xtvaro00 100 (GUI, prepojenie GUI a mat. kniznice, mockup)
+xsokol14 100 (profiling, instalátor, mockup)
