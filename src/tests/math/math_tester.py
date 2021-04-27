@@ -6,7 +6,7 @@
 
 
 import unittest
-from src.mathlib import add, minus, multiply, divide, factorial, power, square_root, abs_value, solve_expr
+from mathlib import add, minus, multiply, divide, factorial, power, square_root, abs_value, solve_expr
 
 
 
