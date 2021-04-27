@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 ##
-# @package
+# @package profiling
 # Profiling je skript, ktorý počíta smerodajnú odchýlku
 #
 # Skript bol vytvorený za účelom vykonania profilingu. Počíta smerodajnú odchýlku, ktorá

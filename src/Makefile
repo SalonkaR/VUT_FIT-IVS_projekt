@@ -1,4 +1,8 @@
 # Makefile
+
+##
+# @file Makefile
+
 ZIP_NAME = xhorni20_xtvaro00_xbrnaf00_xsokol14.zip
 
 .PHONY:
@@ -23,6 +27,6 @@ clean:
 clean-doc:
 	cd .. && rm -rf doc
 
-pack:
+pack: doc
 	rm -rf __pycache__
 	cd .. && zip -r $(ZIP_NAME) *

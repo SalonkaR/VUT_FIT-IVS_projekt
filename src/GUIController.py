@@ -6,7 +6,13 @@ import GUI
 import mathlib
 
 
+
+
+
+
 ##
+# @file GUIController.py
+# @author Matus Tvarozny
 # @brief Trieda App nacitava GUI zo suboru GUI.py a robi ho funkcnym
 #
 # Tlacidlam z GUI pridava akcie po kliknuti mysou alebo stlacenim danej klavesy na klavesnice.

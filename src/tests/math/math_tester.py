@@ -1,22 +1,19 @@
-"""!
-    @file math_tester.py
-    @author Filip Brna, BicoVUT
-    @brief Testy implementacie matematickej knihovny mathlib
-"""
+##
+#    @package math_tester
+#    @file math_tester.py
+#    @author Filip Brna, BicoVUT
+#    @brief Testy implementacie matematickej knihovny mathlib
 
 
 import unittest
 from mathlib import add, minus, multiply, divide, factorial, power, square_root, abs_value, solve_expr
 
 
-
-
-
+##
+# @class addTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu add (scitanie) z matematickej knihovny mathlib.py
 class addTests(unittest.TestCase):
 
-    """! @class addTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu add (scitanie) z matematickej knihovny mathlib.py
-    """
 
     def test_add1(self):
         self.assertEqual(add(3, 3), 6, "Ma byt 6")
@@ -39,11 +36,12 @@ class addTests(unittest.TestCase):
     def test_add7(self):
         self.assertEqual(add(0.5, 0.1), 0.6, "Ma byt 0.6")
 
-
+##
+# @class minusTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu minus (odcitanie) z matematickej knihovny mathlib.py
 class minusTests(unittest.TestCase):
-    """! @class minusTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu minus (odcitanie) z matematickej knihovny mathlib.py
-    """
+
+    
 
     def test_minus1(self):
         self.assertEqual(minus(4, 3), 1, "Ma byt 1")
@@ -66,11 +64,10 @@ class minusTests(unittest.TestCase):
     def test_minus7(self):
         self.assertAlmostEqual(minus(0.7, 0.05), 0.65)
 
-
+##
+# @class multipyTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu multiply (nasobenie) z matematickej knihovny mathlib.py
 class multipyTests(unittest.TestCase):
-    """! @class multipyTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu multiply (nasobenie) z matematickej knihovny mathlib.py
-    """
 
     def test_multiply1(self):
         self.assertEqual(multiply(4, 3), 12, "Ma byt 12")
@@ -93,11 +90,10 @@ class multipyTests(unittest.TestCase):
     def test_multiply7(self):
         self.assertEqual(divide(10, 0.5), 20, "Ma byt 20")
 
-
+##
+# @class divideTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu divide (delenie) z matematickej knihovny mathlib.py
 class divideTests(unittest.TestCase):
-    """! @class divideTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu divide (delenie) z matematickej knihovny mathlib.py
-    """
 
     def test_divide1(self):
         self.assertEqual(divide(6, 3), 2, "Ma byt 2")
@@ -121,11 +117,10 @@ class divideTests(unittest.TestCase):
     def test_divide7(self):
         self.assertEqual(divide(2, 0.5), 4, "Ma byt 4")
 
-
+##
+# @class factorialTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu factorial (faktorial cisla) z matematickej knihovny mathlib.py
 class factorialTests(unittest.TestCase):
-    """! @class factorialTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu factorial (faktorial cisla) z matematickej knihovny mathlib.py
-    """
 
     def test_factorial1(self):
         self.assertEqual(factorial(5), 120, "Ma byt 120")
@@ -144,11 +139,10 @@ class factorialTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             factorial(-6)
 
-
+##
+# @class powerTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu power (mocnina cisla) z matematickej knihovny mathlib.py
 class powerTests(unittest.TestCase):
-    """! @class powerTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu power (mocnina cisla) z matematickej knihovny mathlib.py
-    """
 
     def test_power1(self):
         self.assertEqual(power(4, 3), 64, "Ma byt 64")
@@ -171,11 +165,10 @@ class powerTests(unittest.TestCase):
     def test_power7(self):
         self.assertAlmostEqual(power(10, 0.5), 3.16227766)
 
-
+##
+# @class square_rootTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu square_root (odmocnina) z matematickej knihovny mathlib.py
 class square_rootTests(unittest.TestCase):
-    """! @class square_rootTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu square_root (odmocnina) z matematickej knihovny mathlib.py
-    """
 
     def test_square_root1(self):
         self.assertEqual(square_root(8, 3), 2, "Ma byt 2")
@@ -200,11 +193,10 @@ class square_rootTests(unittest.TestCase):
     def test_square_root7(self):
         self.assertEqual(square_root(10, 0.5), 100, "Ma byt 100")
 
-
+##
+# @class abs_valueTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu abs_value (absolutna hodnota) z matematickej knihovny mathlib.py
 class abs_valueTests(unittest.TestCase):
-    """! @class abs_valueTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu abs_value (absolutna hodnota) z matematickej knihovny mathlib.py
-    """
 
     def test_abs_value1(self):
         self.assertEqual(abs_value(4), 4, "Ma byt 4")
@@ -218,11 +210,11 @@ class abs_valueTests(unittest.TestCase):
     def test_abs_value4(self):
         self.assertEqual(abs_value(0.5), 0.5, "Ma byt 0.5")
 
-
+##
+# @class addSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre scitavanie
 class addSolve_exprTests(unittest.TestCase):
-    """! @class addSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre scitavanie
-    """
+
 
     def test_solve_expr_add1(self):
         self.assertEqual(solve_expr("3 + 3"), 6, "Ma byt 6")
@@ -248,11 +240,11 @@ class addSolve_exprTests(unittest.TestCase):
     def test_solve_expr_add7(self):
         self.assertAlmostEqual(solve_expr("0.9+ -0.3"), 0.6)
 
-
+##
+# @class minusSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre odcitanie
 class minusSolve_exprTests(unittest.TestCase):
-    """! @class minusSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre odcitanie
-    """
+
     def test_solve_expr_minus1(self):
         self.assertEqual(solve_expr("2 --- 1"), 1, "Ma byt 1")
 
@@ -276,11 +268,11 @@ class minusSolve_exprTests(unittest.TestCase):
     def test_minus7(self):
         self.assertAlmostEqual(solve_expr("-0.7--0.8"), 0.1)
 
-
+##
+# @class multipySolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre nasobenie
 class multipySolve_exprTests(unittest.TestCase):
-    """! @class multipySolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre nasobenie
-    """
+    
     def test_solve_expr_multiply1(self):
         self.assertEqual(solve_expr("4*3"), 12, "Ma byt 12")
 
@@ -304,11 +296,11 @@ class multipySolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("8*0,5")
 
-
+##
+# @class divideSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre delenie
 class divideSolve_exprTests(unittest.TestCase):
-    """! @class divideSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre delenie
-    """
+
     def test_solve_expr_divide1(self):
         self.assertEqual(solve_expr("4  /2"), 2, "Ma byt 2")
 
@@ -333,11 +325,11 @@ class divideSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("0,2/1")
 
-
+##
+# @class factorialSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre faktorial
 class factorialSolve_exprTests(unittest.TestCase):
-    """! @class factorialSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre faktorial
-    """
+
     def test_solve_expr_factorial1(self):
         self.assertEqual(solve_expr("fac5"), 120, "Ma byt 120")
 
@@ -363,11 +355,11 @@ class factorialSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("fac-2")
 
-
+##
+# @class powerSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre mocninu
 class powerSolve_exprTests(unittest.TestCase):
-    """! @class powerSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre mocninu
-    """
+
     def test_solve_expr_power1(self):
         self.assertEqual(solve_expr("2^6"), 64, "Ma byt 64")
 
@@ -393,11 +385,10 @@ class powerSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("2^ 6")
 
-
+##
+# @class square_rootSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre odmocninu
 class square_rootSolve_exprTests(unittest.TestCase):
-    """! @class square_rootSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre odmocninu
-    """
     def test_solve_expr_square_root1(self):
         self.assertEqual(solve_expr("2√4"), 2, "Ma byt 2")
 
@@ -420,11 +411,10 @@ class square_rootSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("2√")
 
-
+##
+# @class abs_valueSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre absolutnu hodnotu
 class abs_valueSolve_exprTests(unittest.TestCase):
-    """! @class abs_valueSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre absolutnu hodnotu
-    """
     def test_solve_expr_abs_value1(self):
         self.assertEqual(solve_expr("abs4"), 4, "Ma byt 4")
 
@@ -442,11 +432,10 @@ class abs_valueSolve_exprTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             solve_expr("abs")
 
-
+##
+# @class LongSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre narocnejsie vyrazy bez zatvorky
 class LongSolve_exprTests(unittest.TestCase):
-    """! @class LongSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz)  z matematickej knihovny mathlib.py pre narocnejsie vyrazy bez zatvorky
-    """
     def test_solve_expr_long1(self):
         self.assertAlmostEqual(solve_expr(
             "fac5 + 4 - 4 * 4 / 4 - abs3 - abs-3.4 + 2√4 + 3√2 + 2.2^2.2 -2^-4"), 122.4641168)
@@ -472,11 +461,10 @@ class LongSolve_exprTests(unittest.TestCase):
             solve_expr(
                 "fac5 + 4 - 4 * / 4 - abs3 - abs-3.4 + 2√4 + 3√2 + 2.2^2.2 -2^-4")
 
-
+##
+# @class LongBracketSolve_exprTests, ktora dedi z triedy TestCase
+# @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre narocnejsie vyrazy so zatvorkami
 class LongBracketSolve_exprTests(unittest.TestCase):
-    """! @class LongBracketSolve_exprTests, ktora dedi z triedy TestCase
-    @brief V triede su vytvorene testy na funkciu solve_expr (vyhodnocuje vyraz) z matematickej knihovny mathlib.py pre narocnejsie vyrazy so zatvorkami
-    """
     def test_solve_expr_long_bracket1(self):
         self.assertEqual(solve_expr(
             "fac5 + 2√(3+1) * (1+(3-2)*(2*2)) - abs-5"), 125, "Ma byt 125")
