@@ -6,15 +6,22 @@ import GUI
 import mathlib
 
 
-"""
-@brief Controller
-"""
+##
+# @brief Trieda App nacitava GUI zo suboru GUI.py a robi ho funkcnym
+#
+# Tlacidlam z GUI pridava akcie po kliknuti mysou alebo stlacenim danej klavesy na klavesnice.
+# Zaroven vytvara spojenie medzi GUI a matematickou kniznicou, kedy po stlaceni tlacidla "="
+# popripade ENTER na klavesnici vola funkciu mathlib.solve_expr(), ktorej ako parameter predava
+# retazec, ktory sa prave nachadza na displeji kalkulacky. Pokial je validny a matematicka kniznica
+# ho dokaze vypocitat vysledok sa opat ukaze na displeji, inak sa ukaze chybova hlaska "ERROR".
 class App(QMainWindow, GUI.Ui_Form):
+    ##
+    # @brief Inicializacia kalkulacky
     def __init__(self):
         super().__init__()
+        self.setWindowIcon(QIcon('logo.png'))
         self.setupUi(self)
         self.show()
-
         self.pushButton_zero.clicked.connect(lambda: self.button_click("0"))
         self.pushButton_one.clicked.connect(lambda: self.button_click("1"))
         self.pushButton_two.clicked.connect(lambda: self.button_click("2"))
@@ -40,6 +47,9 @@ class App(QMainWindow, GUI.Ui_Form):
         self.pushButton_DEL.clicked.connect(lambda: self.button_click("DEL"))
         self.pushButton_equal.clicked.connect(lambda: self.button_click("="))
 
+    ##
+    # @brief Funkcia, ktora sa vola po kliknuti niektoreho z tlacidiel
+    # @param text retazec ktory definuje tlacidlo, ktore bolo kliknute
     def button_click(self, text):
         if text == "AC":
             self.clear_display()
@@ -57,16 +67,26 @@ class App(QMainWindow, GUI.Ui_Form):
         else:
             self.set_display_text(text)
 
+    ##
+    # @brief Funkcia nastavuje co je na displeji kalkulacky vypisane
+    # @param text text, ktory bude vypisany na displej
     def set_display_text(self, text):
         temp = self.display_text() + text
         self.lineEdit.setText(temp)
 
+    ##
+    # @brief Funkcia vycisti displej kalkulacky, inak povedane nastavi retazec na displeji na prazdny retazec
     def clear_display(self):
         self.lineEdit.setText("")
 
+    ##
+    # @brief Funkcia vracia retazec, ktory je vypisany na displeji
+    # @return retazec s obsahom displeja kalkulacky
     def display_text(self):
         return self.lineEdit.text()
 
+    ##
+    # @brief Funkcia vymaze jeden symbol z displeja kalkulacky(DEL tlacidlo)
     def remove_one(self):
         text = self.display_text()
         text_len = len(text)
@@ -79,6 +99,8 @@ class App(QMainWindow, GUI.Ui_Form):
         self.clear_display()
         self.set_display_text(new_text)
 
+    ##
+    # @brief Funkcia pridava funkcionalitu danym tlacidlam klavesnice, tak aby bola praca s applikaciou kalkulacky intuitivna a podporovala aj vstup z klavesnice
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_0:
             self.button_click("0")
@@ -118,9 +140,3 @@ class App(QMainWindow, GUI.Ui_Form):
             self.button_click("=")
         elif event.key() == Qt.Key_Backspace:
             self.button_click("DEL")
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QApplication(sys.argv)
-#     calculator = App()
-#     sys.exit(app.exec_())

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+##
+# @brief Main spustajuci kalkulacku
 import sys
 from PyQt5.QtWidgets import QApplication
 import GUIController
